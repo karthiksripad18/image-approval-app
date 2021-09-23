@@ -1,7 +1,12 @@
+import Card from "./components/Card/Card";
+import GlobalStyle from './globalStyles';
+
 function App() {
   return (
-    <div>
-    </div>
+    <>
+      <GlobalStyle />
+      <Card />
+    </>
   );
 }
 
