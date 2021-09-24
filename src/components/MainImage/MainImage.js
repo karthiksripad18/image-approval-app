@@ -18,12 +18,16 @@ const MainImage = () => {
                 </MainImageContainer>
                 :
                 (
-                    Object.keys(image).length === 0?
+                    !image.id?
                     <MainImageContainer background={"#cfcfcf"}>
                         <FontAwesomeIcon onClick={ () => dispatch(fetchImage())} icon={faPlus} color={"gray"} size={"5x"} />
                     </MainImageContainer>
                     :
-                    <MainImageContainer background={image.urls}></MainImageContainer>
+                    <MainImageContainer>
+                        <a href={image.url.fullSize} target="_blank" rel="noreferrer">
+                            <img src={image.url.smallSize} alt={image.description} width="300" height="380" />
+                        </a>
+                    </MainImageContainer>
                 )
             }
         </>

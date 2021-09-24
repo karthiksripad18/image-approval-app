@@ -1,7 +1,6 @@
 import React from 'react';
-import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { ApprovedImagesContainer, ApprovedImageTitle, ImageContainer, CloseIcon } from './ApprovedImages.elements';
+import { CarouselContainer, ApprovedImageTitle, ImageContainer, CloseIcon } from './ApprovedImages.elements';
 import { useSelector, useDispatch } from 'react-redux';
 import {APPROVED_IMAGES_REMOVE_IMAGE} from '../../redux/actions/actionTypes';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -10,15 +9,15 @@ import {faPlus, faTimes} from '@fortawesome/free-solid-svg-icons';
 const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 8,
+      items: 4,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 6,
+      items: 4,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 4,
+      items: 3,
     }
 }
 
@@ -26,24 +25,21 @@ const ApprovedImages = () => {
     const approvedImages = useSelector(state => state.approvedImages);
     const dispatch = useDispatch();
     return (
-        <ApprovedImagesContainer
-            
-        >
+        <>
             <ApprovedImageTitle>
                 APPROVED IMAGES ({approvedImages.length})
             </ApprovedImageTitle>
-            <Carousel
+            <CarouselContainer
                 responsive={responsive}
                 containerClass="carousel-container"
-                // customRightArrow={<CustomRightArrow />}
             >
                 {
                     approvedImages.length > 0?
                     approvedImages.map (
-                        image => (
-                        <ImageContainer key={image.id}>
-                            <img src={image.urls.thumb} alt="" width="60" height="40" />
-                            <CloseIcon onClick={() => dispatch({type: APPROVED_IMAGES_REMOVE_IMAGE, payload: {id: image.id}})}>
+                        ({id, url : {smallSize}, description}) => (
+                        <ImageContainer key={id}>
+                            <img src={smallSize} alt={description} width="75" height="50" />
+                            <CloseIcon onClick={() => dispatch({type: APPROVED_IMAGES_REMOVE_IMAGE, payload: {id: id}})}>
                                 <FontAwesomeIcon icon={faTimes} color={"white"} size={"xs"} />
                             </CloseIcon>
                         </ImageContainer>
@@ -54,8 +50,8 @@ const ApprovedImages = () => {
                         <FontAwesomeIcon icon={faPlus} color={"gray"} size={"1x"} />
                     </ImageContainer>
                 }
-            </Carousel>
-        </ApprovedImagesContainer>
+            </CarouselContainer>
+        </>
     )
 }
 

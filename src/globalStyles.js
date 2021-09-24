@@ -21,6 +21,11 @@ export const Button = styled.button`
     color: white;
     border: none;
     cursor: pointer;
+    transition: transform .2s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 `;
 
 export const HorizontalLine = styled.hr`

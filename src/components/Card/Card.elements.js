@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const CardContainer = styled.div`
     margin: auto;
-    margin-top: 75px;
-    width: 80%;
-    height: 85vh;
+    margin-top: 50px;
+    width: 370px;
+    height: 630px;
     background-color: white;
     border-radius: 5px;
 `;

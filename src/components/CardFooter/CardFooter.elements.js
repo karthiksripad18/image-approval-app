@@ -5,9 +5,9 @@ export const CardFooterContainer = styled.div`
 `;
 
 export const CardFooterText = styled.p`
-    opacity: 0.8;
-    font-size: 14px;
-    font-weight: 500;
+    opacity: 0.6;
+    font-size: 12px;
+    font-weight: bold;
     text-align: center;
     margin: 10px 0;
 `;
