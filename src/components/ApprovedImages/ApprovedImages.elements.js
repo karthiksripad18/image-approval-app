@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import Carousel from "react-multi-carousel";
 
-export const ApprovedImagesContainer = styled.div`
-    min-height: 100px
+export const CarouselContainer = styled(Carousel)`
+    margin-left: 10px;
 `;
 
 export const ApprovedImageTitle = styled.p`
@@ -14,10 +15,6 @@ export const ApprovedImageTitle = styled.p`
     padding: 10px 0px;
 `;
 
-export const ApprovedItem = styled.div`
-    
-`;
-
 export const ImageContainer = styled.div`
     position: relative;
     display: flex;
@@ -25,8 +22,8 @@ export const ImageContainer = styled.div`
     align-items: center;
     border-radius: 5px;
     margin-left: 10px;
-    width: 60px;
-    height: 40px;
+    width: 75px;
+    height: 50px;
     overflow: hidden;
     background: ${({background}) => background};
 `;
@@ -36,4 +33,5 @@ export const CloseIcon = styled.span`
     content: "";
     top: 0px;
     right: 2px;
+    cursor: pointer;
 `;
