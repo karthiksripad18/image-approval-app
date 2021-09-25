@@ -3,17 +3,21 @@ import {APPROVED_IMAGES_ADD_IMAGE, APPROVED_IMAGES_REMOVE_IMAGE} from '../action
 const approvedImagesReducer = (state = [], action) => {
     switch (action.type) {
         case APPROVED_IMAGES_ADD_IMAGE:
-            // Check if Image already exists
+            // Check if Image already exists in the list
             const image = state.find (({id}) => id === action.payload.id);
             
             if (!image) {
-                return [...state, action.payload];
+                const newState = [...state, action.payload];
+                sessionStorage.setItem('approvedImages', JSON.stringify(newState));
+                return newState;
             }
             return state;
 
         case APPROVED_IMAGES_REMOVE_IMAGE:
             let imageIdx = state.findIndex ((image) => image.id === action.payload.id);
-            return [...state.slice (0, imageIdx), ...state.slice (imageIdx + 1)];
+            const newState = [...state.slice (0, imageIdx), ...state.slice (imageIdx + 1)];
+            sessionStorage.setItem('approvedImages', JSON.stringify(newState));
+            return newState;
         default:
             return state;
     }
