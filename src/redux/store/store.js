@@ -10,9 +10,16 @@ const reducer = combineReducers({
     approvedImages: approvedImagesReducer
 });
 
+/*
+    Assigning Initial State depending on the data in Session Storage
+*/
 const initialState = {
-    mainImage: { loading: false, image: {}, error: null},
-    approvedImages: []
+    mainImage: { 
+        loading: false,
+        image: sessionStorage.getItem('mainImage')? JSON.parse(sessionStorage.getItem('mainImage')): {},
+        error: null
+    },
+    approvedImages: sessionStorage.getItem('approvedImages')? JSON.parse(sessionStorage.getItem('approvedImages')): []
 };
 
 const store = createStore(
