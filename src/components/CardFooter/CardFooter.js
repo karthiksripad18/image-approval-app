@@ -15,17 +15,21 @@ const CardFooter = () => {
                 error?
                 <ErrorText>{error}</ErrorText>
                 :
-                (Object.keys(image).length === 0?
-                <CardFooterText>Click on the + in order to get image recommendations</CardFooterText>
-                :
-                <ButtonsContainer>
-                    <Button onClick={ () => dispatch(fetchImage())} backgroundColor="#454545">
-                        <FontAwesomeIcon icon={faTimes} color={"white"} size={"lg"} />
-                    </Button>
-                    <Button onClick= { () => dispatch(addToApprovedImages(image)) } backgroundColor="#3b55e6">
-                        <FontAwesomeIcon icon={faCheck} color={"white"} size={"lg"} />
-                    </Button>
-                </ButtonsContainer>)
+                (
+                    !image.id?
+                    <CardFooterText>
+                        Click on the + in order to get image recommendations
+                    </CardFooterText>
+                    :
+                    <ButtonsContainer>
+                        <Button onClick={ () => dispatch(fetchImage())} backgroundColor="#454545">
+                            <FontAwesomeIcon icon={faTimes} color={"white"} size={"lg"} />
+                        </Button>
+                        <Button onClick= { () => dispatch(addToApprovedImages(image)) } backgroundColor="#3b55e6">
+                            <FontAwesomeIcon icon={faCheck} color={"white"} size={"lg"} />
+                        </Button>
+                    </ButtonsContainer>
+                )
             }    
         </CardFooterContainer>
     )

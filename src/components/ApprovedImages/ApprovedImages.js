@@ -27,7 +27,7 @@ const ApprovedImages = () => {
     return (
         <>
             <ApprovedImageTitle>
-                APPROVED IMAGES ({approvedImages.length})
+                approved images ({approvedImages.length})
             </ApprovedImageTitle>
             <CarouselContainer
                 responsive={responsive}
@@ -35,15 +35,15 @@ const ApprovedImages = () => {
             >
                 {
                     approvedImages.length > 0?
-                    approvedImages.map (
-                        ({id, url : {smallSize}, description}) => (
-                        <ImageContainer key={id}>
-                            <img src={smallSize} alt={description} width="75" height="50" />
-                            <CloseIcon onClick={() => dispatch({type: APPROVED_IMAGES_REMOVE_IMAGE, payload: {id: id}})}>
-                                <FontAwesomeIcon icon={faTimes} color={"white"} size={"xs"} />
-                            </CloseIcon>
-                        </ImageContainer>
-                        )
+                        approvedImages.map (
+                            ({id, url : {smallSize}, description}) => (
+                            <ImageContainer key={id}>
+                                <img src={smallSize} alt={description} width="75" height="50" />
+                                <CloseIcon onClick={() => dispatch({type: APPROVED_IMAGES_REMOVE_IMAGE, payload: {id: id}})}>
+                                    <FontAwesomeIcon icon={faTimes} color={"white"} size={"xs"} />
+                                </CloseIcon>
+                            </ImageContainer>
+                            )
                     )
                     :
                     <ImageContainer background={"#cfcfcf"}>

@@ -17,27 +17,21 @@ const MainImage = () => {
         loading
     } = useSelector(state => state.mainImage);
     return (
-        <>
-            {
-                loading?
-                <MainImageContainer background={"#cfcfcf"}>
-                    <ReactLoading type={'spin'} color={'gray'} height={75} width={75} />
-                </MainImageContainer>
+        <MainImageContainer background={id? null: "#cfcfcf"}>
+        {
+            loading?
+                <ReactLoading type={'spin'} color={'gray'} height={75} width={75} />
+            :
+            (
+                !id?
+                <FontAwesomeIcon onClick={ () => dispatch(fetchImage())} icon={faPlus} color={"gray"} size={"5x"} />
                 :
-                (
-                    !id?
-                    <MainImageContainer background={"#cfcfcf"}>
-                        <FontAwesomeIcon onClick={ () => dispatch(fetchImage())} icon={faPlus} color={"gray"} size={"5x"} />
-                    </MainImageContainer>
-                    :
-                    <MainImageContainer>
-                        <a href={url.fullSize} target="_blank" rel="noreferrer">
-                            <img src={url.smallSize} alt={description} width="300" height="380" />
-                        </a>
-                    </MainImageContainer>
-                )
-            }
-        </>
+                <a href={url.fullSize} target="_blank" rel="noreferrer">
+                    <img src={url.smallSize} alt={description} width="300" height="380" />
+                </a>
+            )
+        }
+        </MainImageContainer>
     )
 }
 
