@@ -8,7 +8,14 @@ import ReactLoading from 'react-loading';
 
 const MainImage = () => {
     const dispatch = useDispatch();
-    const { image, loading } = useSelector(state => state.mainImage);
+    const { image: 
+        {
+            id,
+            url,
+            description
+        },
+        loading
+    } = useSelector(state => state.mainImage);
     return (
         <>
             {
@@ -18,14 +25,14 @@ const MainImage = () => {
                 </MainImageContainer>
                 :
                 (
-                    !image.id?
+                    !id?
                     <MainImageContainer background={"#cfcfcf"}>
                         <FontAwesomeIcon onClick={ () => dispatch(fetchImage())} icon={faPlus} color={"gray"} size={"5x"} />
                     </MainImageContainer>
                     :
                     <MainImageContainer>
-                        <a href={image.url.fullSize} target="_blank" rel="noreferrer">
-                            <img src={image.url.smallSize} alt={image.description} width="300" height="380" />
+                        <a href={url.fullSize} target="_blank" rel="noreferrer">
+                            <img src={url.smallSize} alt={description} width="300" height="380" />
                         </a>
                     </MainImageContainer>
                 )
