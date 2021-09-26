@@ -1,6 +1,6 @@
 import {APPROVED_IMAGES_ADD_IMAGE, APPROVED_IMAGES_REMOVE_IMAGE} from '../actions/actionTypes';
 
-const approvedImagesReducer = (state = ['Helloworld'], action) => {
+const approvedImagesReducer = (state = [], action) => {
     switch (action.type) {
         case APPROVED_IMAGES_ADD_IMAGE:
             // Check if Image already exists in the list
@@ -19,7 +19,7 @@ const approvedImagesReducer = (state = ['Helloworld'], action) => {
             sessionStorage.setItem('approvedImages', JSON.stringify(newState));
             return newState;
         default:
-            return [];
+            return state;
     }
 };
 
