@@ -4,8 +4,10 @@ import {
     MAIN_IMAGE_FETCH_SUCCESS, 
     MAIN_IMAGE_FETCH_FAILED,
     MAIN_IMAGE_REMOVE,
-    APPROVED_IMAGES_ADD_IMAGE
+    APPROVED_IMAGES_ADD_IMAGE,
+    REJECTED_IMAGES_ADD_IMAGE
 } from './actionTypes';
+import store from "../store/store";
 
 export const fetchImage = () => {
     return async (dispatch) => {
@@ -50,4 +52,28 @@ export const addToApprovedImages = (image) => {
             type: MAIN_IMAGE_REMOVE
         });
     }
+}
+
+export const addToRejectedImages = (imageId) => {
+    return (dispatch) => {
+        dispatch ({
+            type: REJECTED_IMAGES_ADD_IMAGE,
+            payload: imageId
+        });
+        dispatch ({
+            type: MAIN_IMAGE_REMOVE
+        });
+        dispatch (fetchImage());
+
+        // Fetch until Image is not in Rejected List
+        while (isInRejectedImages(store.getState().mainImage.id)) {
+            dispatch (fetchImage());
+        }
+    }
+}
+
+// Checks if given imageId is in Rejected Images List
+const isInRejectedImages = (newImgId) => {
+    const { rejectedImages } = store.getState();
+    return rejectedImages.find (imgId => imgId === newImgId) !== undefined;
 }
