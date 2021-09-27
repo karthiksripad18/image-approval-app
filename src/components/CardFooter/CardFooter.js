@@ -13,7 +13,7 @@ const CardFooter = () => {
         <CardFooterContainer>
             {
                 error?
-                <ErrorText>{error}</ErrorText>
+                <ErrorText data-testid="error-text">{error}</ErrorText>
                 :
                 (
                     !image.id?
