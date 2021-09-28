@@ -28,9 +28,7 @@ describe ("Main Image Test Suite", () => {
             image: {
                 id: 'abcd1234',
                 url: {},
-                description: "",
-                likes: 1,
-                downloads: 2
+                description: ""
             }
         };
     
@@ -45,9 +43,7 @@ describe ("Main Image Test Suite", () => {
             image: {
                 id: 'abcd1234',
                 url: {},
-                description: "",
-                likes: 1,
-                downloads: 2
+                description: ""
             }
         };
     
@@ -63,9 +59,7 @@ describe ("Main Image Test Suite", () => {
             image: {
                 id: undefined,
                 url: {},
-                description: "",
-                likes: 1,
-                downloads: 2
+                description: ""
             }
         };
     

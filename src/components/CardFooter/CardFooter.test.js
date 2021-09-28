@@ -54,9 +54,7 @@ describe ("Card Footer Test Suite", () => {
                     smallSize: "",
                     largeSize: ""
                 },
-                description: "",
-                likes: 1,
-                downloads: 2
+                description: ""
             }
         };
     

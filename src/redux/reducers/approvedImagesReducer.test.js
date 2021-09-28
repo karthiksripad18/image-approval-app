@@ -15,16 +15,14 @@ describe ('Approved Images Reducer', () => {
         const imagePayload = {
             id: 'abc1234',
             url: {},
-            description: "",
-            likes: 1,
-            downloads: 2
+            description: ""
         };
         const newState = approvedImagesReducer ([], {type: APPROVED_IMAGES_ADD_IMAGE, payload: imagePayload});
         expect(newState.length).toEqual(1);
     });
 
     it ('Should remove and return the state', () => {
-        const state = [{id: 'abcd1234', description: "", url: {}, likes: 1, downloads: 1}];
+        const state = [{id: 'abcd1234', description: "", url: {}}];
         const newState = approvedImagesReducer (state, {type: APPROVED_IMAGES_REMOVE_IMAGE, payload: {id: 'abcd1234'}});
         expect(newState.length).toEqual(0);
     });
