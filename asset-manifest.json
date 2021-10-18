@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.js": "/my-app/static/js/main.ce280ab7.chunk.js",
+    "main.js.map": "/my-app/static/js/main.ce280ab7.chunk.js.map",
+    "runtime-main.js": "/my-app/static/js/runtime-main.031e6ce6.js",
+    "runtime-main.js.map": "/my-app/static/js/runtime-main.031e6ce6.js.map",
+    "static/css/2.9168ff07.chunk.css": "/my-app/static/css/2.9168ff07.chunk.css",
+    "static/js/2.cfdf3b97.chunk.js": "/my-app/static/js/2.cfdf3b97.chunk.js",
+    "static/js/2.cfdf3b97.chunk.js.map": "/my-app/static/js/2.cfdf3b97.chunk.js.map",
+    "static/js/3.f1617f8d.chunk.js": "/my-app/static/js/3.f1617f8d.chunk.js",
+    "static/js/3.f1617f8d.chunk.js.map": "/my-app/static/js/3.f1617f8d.chunk.js.map",
+    "index.html": "/my-app/index.html",
+    "static/css/2.9168ff07.chunk.css.map": "/my-app/static/css/2.9168ff07.chunk.css.map",
+    "static/js/2.cfdf3b97.chunk.js.LICENSE.txt": "/my-app/static/js/2.cfdf3b97.chunk.js.LICENSE.txt",
+    "static/media/styles.css": "/my-app/static/media/revicons.e8746a62.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.031e6ce6.js",
+    "static/css/2.9168ff07.chunk.css",
+    "static/js/2.cfdf3b97.chunk.js",
+    "static/js/main.ce280ab7.chunk.js"
+  ]
+}
